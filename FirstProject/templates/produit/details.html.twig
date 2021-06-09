@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails{% endblock %}
+
+{% block body %}
+ <table class = "table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">DESIGNATION</th>
+            <th scope="col">COULEUR</th>
+            <th scope="col">PRIX</th>
+            <th scope="col">POIDS</th>
+            <th scope="col">CATEGORIE</th>
+        </tr>
+    <tbody>
+        <tr>
+            <td>{{produit.id}}</td>
+            <td>{{produit.designation}}</td>
+            <td>{{produit.couleur}}</td>
+            <td>{{produit.prix}}</td>
+            <td>{{produit.poids}}</td>
+            <td>{{produit.categorie.nom}}</td>
+        </tr>
+    </tbody>
+    </thead>
+{% endblock %}

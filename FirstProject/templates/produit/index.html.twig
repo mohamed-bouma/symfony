@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de produits{% endblock %}
+
+{% block body %}
+<a href="{{ path('add_form') }}" class="btn btn-light">Ajouter un produit</a>
+<table class = "table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">DESIGNATION</th>
+            <th scope="col">COULEUR</th>
+            <th scope="col">PRIX</th>
+            <th scope="col">POIDS</th>
+            <th scope="col" class="text-center">GESTION</th>
+        </tr>
+    </thead>
+    {% for p in produit %}
+    <tbody>
+        <tr class = "position-center">
+            <td>{{ p.id }}</td>
+            <td>{{ p.designation }}</td>
+            <td>{{ p.couleur }}</td>
+            <td>{{ p.prix }}</td>
+            <td>{{ p.poids }}</td>
+            <td class="text-center">
+              {# <a href="/produit/{{ p.id }}" class="btn btn-info">Détails</a> #}
+              <a href="{{ path('produit_detail', {'id' : p.id}) }}" class="btn btn-info">Détails</a>
+              <a href="{{ path('produit_update', {'id' : p.id}) }}" class="btn btn-primary">Modifier</a>
+              <a href="{{ path('produit_delete', {'id' : p.id}) }}" class="btn btn-danger">Supprimer</a>
+            </td>
+            
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock %}
